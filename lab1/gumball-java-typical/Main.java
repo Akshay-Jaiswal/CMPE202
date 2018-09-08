@@ -8,6 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		String repeat = "y";
+		boolean flag = false;
 		int machineChoice=0;
 		int actionChoice=0;
 		int coinChoice=0;
@@ -16,7 +17,8 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		QuarterGumballMachine quarterGumballMachine = new QuarterGumballMachine(10);
-		TwoQuarterGumballMachine twoQuarterGumballMachine = new TwoQuarterGumballMachine(10);
+		TwoQuarterGumballMachine twoQuarterGumballMachine = new TwoQuarterGumballMachine(1);
+		AllCoinGumballMachine allCoinGumballMachine = new AllCoinGumballMachine(1);
 		
 		while(repeat.equals("Y") || repeat.equals("y"))
 		{
@@ -50,20 +52,31 @@ public class Main {
 					}
 					case 2:
 						System.out.println("You chose machine 2");
-						for(int i=0;i<2;i++)
+						while(flag==false)
 						{	
 							System.out.println("\nInsert coin : \n1. Nikel \n2. Dime \n3. Quarter");
 							coinChoice = Integer.parseInt(br.readLine());
 							twoQuarterGumballMachine.insertQuarter(coinChoice);
-							if(!twoQuarterGumballMachine.turnCrank())
+							if(twoQuarterGumballMachine.turnCrank()!=25)
 							{
-								i++;	
+								flag=true;
 							}
 						}
+						flag=false;
 						break;
 					
 					case 3:
-						System.out.println("You chose machine 3");
+						while(flag==false)
+						{	
+							System.out.println("\nInsert coin : \n1. Nikel \n2. Dime \n3. Quarter");
+							coinChoice = Integer.parseInt(br.readLine());
+							allCoinGumballMachine.insertQuarter(coinChoice);
+							if(allCoinGumballMachine.turnCrank()==0)
+							{
+								flag=true;
+							}
+						}
+						flag=false;
 						break;
 				}
 				System.out.println("\n\nDo you want to continue : \n1. Yes(y/Y)\n2. No(n/N)");

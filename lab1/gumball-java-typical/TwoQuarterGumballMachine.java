@@ -13,9 +13,8 @@ public class TwoQuarterGumballMachine implements GumaballMachineInterface
 	}
 
 	@Override
-	public void insertQuarter(int coin) {
-		System.out.println("You chose Two Quarter Machine");
-		 
+	public void insertQuarter(int coin) 
+	{
 		 if (coin == 3)
 	            {
 	        		this.has_quarter = true;
@@ -25,7 +24,7 @@ public class TwoQuarterGumballMachine implements GumaballMachineInterface
 	}
 
 	@Override
-	public boolean turnCrank() {
+	public int turnCrank() {
 		if ( this.has_quarter )
     	{
 			coinCount++;
@@ -37,23 +36,24 @@ public class TwoQuarterGumballMachine implements GumaballMachineInterface
 	    			this.has_quarter = false ;
 	    			coinCount=0;
 	    			System.out.println( "Thanks for your quarter.  Gumball Ejected!" ) ;
-	    			return false;
+	    			return 50;
 	    		}
 	    		else
 	    		{
 	    			System.out.println( "No More Gumballs!  Sorry, can't return your quarter." ) ;
 	    			coinCount=0;
-	    			return false;
+	    			return 50;
 	    		}
 			}
 			else
-				return true;
+				return 25;
     	}
     	else 
     	{
+    		System.out.println("You chose Two Quarter Machine");
     		System.out.println( "Please insert a quarter" ) ;
     		coinCount=0;
-    		return false;
+    		return -1;
     	}
 	}
 
