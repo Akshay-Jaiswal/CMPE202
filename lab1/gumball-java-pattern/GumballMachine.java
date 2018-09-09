@@ -3,31 +3,33 @@
 public class GumballMachine {
  
 	State soldOutState;
-	State noQuarterState;
-	State hasQuarterState;
+	State noCoinState;
+	State hasCoinState;
 	State soldState;
  
 	State state = soldOutState;
 	int count = 0;
+	String type="";
+	int totalCost=0;
  
-	public GumballMachine(int numberGumballs) {
+	public GumballMachine(int numberGumballs, String type ) {
 		soldOutState = new SoldOutState(this);
-		noQuarterState = new NoQuarterState(this);
-		hasQuarterState = new HasQuarterState(this);
+		noCoinState = new NoCoinState(this);
+		hasCoinState = new HasCoinState(this);
 		soldState = new SoldState(this);
-
+		type= type;
 		this.count = numberGumballs;
  		if (numberGumballs > 0) {
-			state = noQuarterState;
+			state = noCoinState;
 		} 
 	}
  
-	public void insertQuarter() {
-		state.insertQuarter();
+	public void insertCoin(int coin) {
+		state.insertCoin(coin);
 	}
  
-	public void ejectQuarter() {
-		state.ejectQuarter();
+	public void ejectCoin() {
+		state.ejectCoin();
 	}
  
 	public void turnCrank() {
@@ -44,15 +46,16 @@ public class GumballMachine {
 		if (count != 0) {
 			count = count - 1;
 		}
+		totalCost=0;
 	}
  
 	int getCount() {
 		return count;
 	}
- 
+	 
 	void refill(int count) {
 		this.count = count;
-		state = noQuarterState;
+		state = noCoinState;
 	}
 
     public State getState() {
@@ -63,12 +66,12 @@ public class GumballMachine {
         return soldOutState;
     }
 
-    public State getNoQuarterState() {
-        return noQuarterState;
+    public State getNoCoinState() {
+        return noCoinState;
     }
 
-    public State getHasQuarterState() {
-        return hasQuarterState;
+    public State getHasCoinState() {
+        return hasCoinState;
     }
 
     public State getSoldState() {
@@ -77,12 +80,13 @@ public class GumballMachine {
  
 	public String toString() {
 		StringBuffer result = new StringBuffer();
-		result.append("\nMighty Gumball, Inc.");
-		result.append("\nJava-enabled Standing Gumball Model #2004");
+		result.append("\nAkshay's Gumball, Inc.");
+		result.append("\nJava-enabled Standing Gumball Model #2018");
 		result.append("\nInventory: " + count + " gumball");
 		if (count != 1) {
 			result.append("s");
 		}
+		result.append("\nMachine: " + type);
 		result.append("\n");
 		result.append("Machine is " + state + "\n");
 		return result.toString();
