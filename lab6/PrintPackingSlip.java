@@ -25,7 +25,9 @@ public class PrintPackingSlip implements PrintStratagy{
 			}
 		}
 		
-		String output  = "1	   "+order.getBurger().getName()+"\n";
+		String output    = "---------PACKING SLIP---------\n";
+		
+				output  += "1	   "+order.getBurger().getName()+"\n";
 		
 		for(String top : onTopBun)
 		{

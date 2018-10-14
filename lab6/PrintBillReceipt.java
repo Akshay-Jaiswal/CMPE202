@@ -4,8 +4,9 @@ public class PrintBillReceipt implements PrintStratagy{
 
 	@Override
 	public void print(Order order) {
-
-		String output   = "1	"+order.getBurger().getName()+"				"+order.getBurger().getPrice()+"\n";
+		
+		String output    = "---------BILL RECEIPT---------\n";
+				output  += "1	"+order.getBurger().getName()+"				"+order.getBurger().getPrice()+"\n";
 		for(Toppings topping : order.getBurger().getToppings())
 		{
 			switch(topping.getName())
