@@ -38,7 +38,7 @@ public class PrintBillReceipt implements PrintStratagy{
 		
 				output += "1	"+order.getSide().getName()+"				"+order.getSide().getPrice()+"\n\n";
 				
-				output += "Sub. Total				"+(order.getBurger().getPrice()+order.getSide().getPrice())+"\n\n";
+				output += "Sub. Total				"+(float)(order.getBurger().getPrice()+order.getSide().getPrice())+"\n\n";
 				
 				System.out.println(output);
 	}
