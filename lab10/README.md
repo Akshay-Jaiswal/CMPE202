@@ -9,19 +9,19 @@
 
 - Configurations and outputs:
 
-i. Model: CRANK , COST: 25
+i. Model: Crank , Cost: 25
 
 ![CRANK-25](./CrankModel25.png)
 
-ii. Model: CRANK , COST: 50
+ii. Model: Crank , Cost: 50
 
 ![CRANK-50](./CrankModel50.png)
 
-iii. Model: SLOT , COST: 25
+iii. Model: Slot , Cost: 25
 
 ![SLOT-25](./SlotModel25.png)
 
-iv. Model: SLOT , COST: 50
+iv. Model: Slot , Cost: 50
 
 ![SLOT-50](./SlotModel50.png)
 
